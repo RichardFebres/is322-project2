@@ -6,20 +6,27 @@ import PageTabs from './PageTabs.component';
 import GridView from './GridView.component';
 import ListView from './ListView.component';
 import TaskBoard from './TaskBoard.component';
-import AddTask from './AddTask.component';
+
+const DESKTOP =  1280;
+const TABLET = 1024;
+const PHONE = 640;
 
 class App extends React.Component {
-    state = {
-        view: 'grid',
-        allTasks: [],
-        sortedTasks: {
-            todo: [],
-            inProgress: [],
-            review: [],
-            done: []
-        },
-        errorText: ''
+        state = {
+            view: 'grid',
+            allTasks: [],
+            sortedTasks: {
+                todo: [],
+                inProgress: [],
+                review: [],
+                done: []
+            },
+            browserWidth: 0,
+            breakpoint: 'desktop',
+            errorText: '',
+        }
     }
+
 
     componentDidMount() {
         this.getTasks();
